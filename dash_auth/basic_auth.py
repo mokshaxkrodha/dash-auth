@@ -9,6 +9,7 @@ class BasicAuth(Auth):
         self._users = username_password_list \
             if isinstance(username_password_list, dict) \
             else {k: v for k, v in username_password_list}
+        self._username = ''
 
     def is_authorized(self):
         header = flask.request.headers.get('Authorization', None)
